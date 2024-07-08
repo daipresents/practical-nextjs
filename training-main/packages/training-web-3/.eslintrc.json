@@ -3,7 +3,7 @@
   "parserOptions": {
     "sourceType": "module",
     "project": "./tsconfig.json",
-    "tsconfigRootDir": "./training-main/packages/training-web-3"
+    "tsconfigRootDir": "/Users/daipresents/Work/practical-nextjs/training-main/packages/training-web-3"
   },
   "plugins": [
     "@typescript-eslint",
@@ -51,5 +51,11 @@
     ],
     "@typescript-eslint/consistent-type-imports": "warn",
     "unused-imports/no-unused-imports": "error"
+  },
+  // see https://qiita.com/watertight/items/f4b506538b146a839b36
+  "settings": {
+    "import/resolver": {
+        "typescript": {}
+    }
   }
 }

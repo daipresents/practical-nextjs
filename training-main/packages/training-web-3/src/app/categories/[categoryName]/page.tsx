@@ -1,6 +1,6 @@
+import Link from "next/link";
 import type { Category, Photo } from "@/type";
 import { getPage } from "@/utils";
-import Link from "next/link";
 import styles from "./page.module.css";
 
 async function getCategory(categoryName: string) {
