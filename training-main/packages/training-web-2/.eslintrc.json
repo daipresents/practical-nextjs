@@ -4,7 +4,7 @@
     "sourceType": "module",
     "project": "./tsconfig.json",
     // https://stackoverflow.com/questions/64933543/parsing-error-cannot-read-file-tsconfig-json-eslint
-    "tsconfigRootDir": "./training-main/packages/training-web-2"
+    "tsconfigRootDir": "/Users/daipresents/Work/practical-nextjs/training-main/packages/training-web-2"
   },
   "plugins": [
     "@typescript-eslint",
