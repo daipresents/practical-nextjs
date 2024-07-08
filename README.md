@@ -16,6 +16,8 @@ npm run start
 
 # Note
 
+## 1.
+
 1. Tree
 2. Subtree
 3. Root
@@ -39,6 +41,12 @@ Dynamic Route / Dynamic Segment
 e.g. example.com/photos/[photoId]
 
 1. [photoId]: Dynamic Segment
+
+## 2
+- SSR: サーバサイドレンダリング
+- Sercer Component: RSC
+- onClickイベントハンドラー ＞ 任意のDOMにイベントハンドラーをアタッチ ＞ UIはインタラクティブに ＝ ハイドレーション
+
 
 
 

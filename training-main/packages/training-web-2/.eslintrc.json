@@ -2,7 +2,9 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    // https://stackoverflow.com/questions/64933543/parsing-error-cannot-read-file-tsconfig-json-eslint
+    "tsconfigRootDir": "./training-main/packages/training-web-2"
   },
   "plugins": [
     "@typescript-eslint",
