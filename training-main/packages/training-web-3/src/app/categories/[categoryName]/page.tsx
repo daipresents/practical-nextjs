@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { Category, Photo } from "@/type";
 import { getPage } from "@/utils";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 async function getCategory(categoryName: string) {
@@ -24,6 +24,9 @@ type Props = {
 
 export default async function Page({ params, searchParams }: Props) {
   // ★: Promise.all を使用した並列データ取得
+  // 以下より速くなる。
+  // const category = await getCategory(params.categoryName);
+  // const photos = await getPhotos();
   const [category, photos] = await Promise.all([
     getCategory(params.categoryName),
     getPhotos(),
