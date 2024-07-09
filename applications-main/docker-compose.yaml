@@ -1,6 +1,5 @@
 version: "3"
 services:
-
   ps-db-user:
     image: postgres:latest
     environment:
@@ -10,6 +9,7 @@ services:
       - 5432:5432
     volumes:
       - user_volumes:/var/lib/postgresql
+
   ps-db-data:
     image: postgres:latest
     environment:
@@ -19,6 +19,7 @@ services:
       - 5433:5432
     volumes:
       - data_volumes:/var/lib/postgresql
+
   minio:
     image: minio/minio:latest
     environment:
@@ -30,6 +31,7 @@ services:
     ports:
       - 9000:9000
       - 9001:9001
+
 volumes:
   user_volumes:
   data_volumes:
