@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Segment Config OptionsでRouteレンダリングを強制
+//export const dynamic = "force-dynamic";
+
 // Route handler
 export async function GET(request: Request) {
   return new Response("Hello, Next.js!");
