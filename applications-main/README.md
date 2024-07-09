@@ -26,4 +26,8 @@ docker compose up -d
 
 # Prisma Studio
 npm run db-studio
+
+# Storybook
+cd sns-shared-ui
+npm run storybook
 ```
