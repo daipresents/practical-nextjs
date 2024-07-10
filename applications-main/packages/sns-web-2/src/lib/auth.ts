@@ -1,8 +1,8 @@
+import { prisma } from "@/lib/prisma";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import type { NextAuthOptions } from "next-auth";
 import { getServerSession as originalGetServerSession } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { prisma } from "@/lib/prisma";
-import type { NextAuthOptions } from "next-auth";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as any), // eslint-disable-line
@@ -17,15 +17,19 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
+      // ユーザの確認
       const dbUser = await prisma.user.findFirst({
         where: { email: token.email },
       });
+      // いなければ新規ユーザ
       if (!dbUser) {
         if (user) {
           token.id = user?.id;
         }
         return token;
       }
+
+      //いればそのユーザ情報を使う
       return {
         id: dbUser.id,
         name: dbUser.name,
@@ -33,6 +37,8 @@ export const authOptions: NextAuthOptions = {
         picture: dbUser.image,
       };
     },
+
+    // Sessionに追加
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
