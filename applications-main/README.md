@@ -31,3 +31,8 @@ npm run db-studio
 cd sns-shared-ui
 npm run storybook
 ```
+
+# 6.
+
+1. App routerにおける代表的なIncremental Cacheはfetch関数によるDataキャッシュ
+1. next.revalidateオプション： Time-based Revalidation

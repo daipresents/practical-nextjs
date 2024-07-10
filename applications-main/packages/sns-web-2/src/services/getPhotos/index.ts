@@ -1,6 +1,6 @@
+import type { PaginationProps } from "sns-shared-ui/src/components/Pagination";
 import { handleFailed, handleSucceed, path } from "../";
 import type { Photo } from "../type";
-import type { PaginationProps } from "sns-shared-ui/src/components/Pagination";
 
 type Props = {
   page?: string;
@@ -19,8 +19,12 @@ export function getPhotos({
   const searchParams = new URLSearchParams({
     page,
     take,
+    // authorIdがあれば { page: '1', take: '15', authorId: '001' } のような形で追加
     ...(authorId && { authorId }),
   });
+
+  console.log(searchParams);
+
   return fetch(path(`/api/photos?${searchParams}`), {
     next: {
       ...(authorId && { tags: [`photos?authorId=${authorId}`] }),
