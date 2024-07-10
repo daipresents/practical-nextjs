@@ -2,11 +2,11 @@ import { SITE_NAME } from "@/constants";
 import { prisma } from "@/lib/prisma";
 import { getCategories } from "@/services/getCategories";
 import { getPhotos } from "@/services/getPhotos";
+import type { Metadata } from "next";
 import { TopCategories } from "./_components/TopCategories";
 import { TopPhotos } from "./_components/TopPhotos";
 import { TopUsers } from "./_components/TopUsers";
 import styles from "./style.module.css";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: SITE_NAME,
@@ -28,6 +28,7 @@ export default async function Page({ searchParams }: Props) {
       id: true,
       name: true,
       image: true,
+      // Profileテーブルのリレーションフィールド値の取得
       profile: { select: { screenName: true } },
     },
   });

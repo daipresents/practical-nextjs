@@ -35,4 +35,13 @@ npm run storybook
 # 6.
 
 1. App routerにおける代表的なIncremental Cacheはfetch関数によるDataキャッシュ
-1. next.revalidateオプション： Time-based Revalidation
+2. next.revalidateオプション： Time-based Revalidation
+
+cache関数を使うときは
+
+1. Reactコンポーネントの中ではなく外側で使う
+2. 引数はプリミティブ値にする
+
+unstable_cacheは
+
+1. コンポーネント内で利用可能
