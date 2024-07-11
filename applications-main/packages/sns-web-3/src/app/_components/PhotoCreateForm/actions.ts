@@ -1,9 +1,9 @@
 "use server";
 
-import { revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
 import { getServerSession } from "@/lib/auth";
 import { postPhotos } from "@/services/postPhotos";
+import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
 
 type Payload = {
   imageUrl: string;
@@ -29,6 +29,7 @@ export async function postPhotoAction(payload: Payload) {
       description: payload.description,
     });
     // ★ On-demand Revalidation
+    // 投稿後に、キャッシュを無効化、次のリクエストで再生成される
     revalidateTag(`photos?authorId=${session.user.id}`);
     photoId = photo.id;
   } catch (err) {

@@ -52,3 +52,10 @@ Progressive Enhancement
 
 1. FormイベントをonSubmitイベントハンドラーを使用すると、JavaScriptがロードされてハイドレーションが完了するまでの間、Formイベントを送信できない
 2. FormのActionに非同期関数を渡す方式によって、JavaScriptを使用しない状態でも、Formが利用できるProgressive Enhancementが有効になる
+
+Route Handler による On-demand Revalidation
+
+1. revalidateTagはRoute Handlerでも実行できるが、router.refresh()の併用が必須。これがないとRouterキャッシュにヒットしてしまうため、投稿後などに投稿が反映されなくなる
+2. router.refresh()を実行するとRouterキャッシュが削除されるが、同時に現在のRouteレンダリングを再リクエストして、別画面に遷移する。このリクエストが余分になる
+3. よって特別な理由がない限り「データの作成、更新、削除」においてRoute HandlerよりもServer Actionを優先して使用するべき
+4. Route handlerでしか実現できないケースは、Next.jsアプリの外側からOn−demand Revalidationを呼び出すというケース。外部のCMSでブログ投稿され、データをNext.jsで取り込むときは、効率よくキャッシュを無効化できる
