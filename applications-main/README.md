@@ -45,3 +45,10 @@ cache関数を使うときは
 unstable_cacheは
 
 1. コンポーネント内で利用可能
+
+# 9.
+
+Progressive Enhancement
+
+1. FormイベントをonSubmitイベントハンドラーを使用すると、JavaScriptがロードされてハイドレーションが完了するまでの間、Formイベントを送信できない
+2. FormのActionに非同期関数を渡す方式によって、JavaScriptを使用しない状態でも、Formが利用できるProgressive Enhancementが有効になる
