@@ -59,3 +59,9 @@ Route Handler による On-demand Revalidation
 2. router.refresh()を実行するとRouterキャッシュが削除されるが、同時に現在のRouteレンダリングを再リクエストして、別画面に遷移する。このリクエストが余分になる
 3. よって特別な理由がない限り「データの作成、更新、削除」においてRoute HandlerよりもServer Actionを優先して使用するべき
 4. Route handlerでしか実現できないケースは、Next.jsアプリの外側からOn−demand Revalidationを呼び出すというケース。外部のCMSでブログ投稿され、データをNext.jsで取り込むときは、効率よくキャッシュを無効化できる
+
+useFormStatus Hook
+
+1. <form> 要素を含むコンポーネントと、Hookを使用する子コンポーネントは分割する必要がある
+
+
