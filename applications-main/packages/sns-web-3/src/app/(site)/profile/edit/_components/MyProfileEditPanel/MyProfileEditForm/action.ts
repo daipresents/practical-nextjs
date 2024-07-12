@@ -1,10 +1,10 @@
 "use server";
 
+import { getServerSession } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
-import { getServerSession } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
 import type { FormState } from "./state";
 
 function validateFormData(formData: FormData) {
@@ -24,9 +24,9 @@ function validateFormData(formData: FormData) {
 }
 
 export async function updateUser(
-  _: FormState,
+  _: FormState, // 第1引数がForm State | null にするのが決まり
   formData: FormData,
-): Promise<FormState> {
+): Promise<FormState> { //戻り値も決まり
   // 【1】誰から送られたリクエストかを特定する
   const session = await getServerSession();
   if (!session) {

@@ -2,7 +2,8 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "/Users/daipresents/Work/practical-nextjs/applications-main/packages/sns-web-3"
   },
   "plugins": [
     "@typescript-eslint",
