@@ -12,7 +12,7 @@ export const initialFormState = (
   liked: false,
   likedCount: 0,
   error: null,
-  ...initialState,
+  ...initialState, // 引数で上書き
 });
 
 // ★ いいね済み状態へと更新して返す関数
